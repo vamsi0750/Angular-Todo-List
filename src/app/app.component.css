@@ -11,7 +11,7 @@
 .input-text {
   display: inline;
   margin: 0;
-  border: none;
+  border-color: #7313cb;
   border-radius: 0.4rem;
   padding: 10px;
 }

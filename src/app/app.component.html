@@ -1,23 +1,30 @@
-<div style="text-align:center">
+<div style="text-align: center">
   <img
     src="../assets/attachment_logo_lyst4516.png"
-    height="100"
+    alt="Code logo"
     width="100"
+    height="100"
     class="logo"
-    alt="Lco Logo"
   />
-  <h1 class="app-title">Lco ToDo List</h1>
+  <h1 class="app-title">Vamsi Todo List</h1>
 </div>
 <div class="container">
-  Add a ToDo...
+  Add a todo...
   <br />
-  <input type="text" class="input-text" placeholder="Type A Todo" />
+  <input
+    type="text"
+    class="input-text"
+    placeholder="Type a todo"
+    [(ngModel)]="todoValue"
+    (keyup.enter)="addItem()"
+  />
   <button class="add-btn" (click)="addItem()">Add Todo</button>
   <div class="list">
     <ul>
-      <li>
-        <input type="checkbox" name="isDone" /> Task 1
-        <button class="btn" (click)="deleteItem()">Delete</button>
+      <li *ngFor="let item of list">
+        <input type="checkbox" name="isDone" [(ngModel)]="item.isDone" />
+        {{ item.value }}
+        <button class="btn" (click)="deleteItem(item.id)">Delete</button>
       </li>
     </ul>
   </div>
